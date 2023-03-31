@@ -1,4 +1,4 @@
-"""imported Turtle class from turtle module"""
+"""imported Turtle class from the turtle module"""
 from turtle import Turtle
 
 """starting positions"""

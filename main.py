@@ -7,6 +7,9 @@ from snake import Snake
 """imported Food class from the food module"""
 from food import Food
 
+"""imported Scoreboard class from the scoreboard module"""
+from scoreboard import Scoreboard
+
 """imported time module"""
 import time
 
@@ -22,6 +25,9 @@ snake = Snake()
 
 """creating the food object"""
 food = Food()
+
+"""creating the score object"""
+score = Scoreboard()
 
 """making up the screen to listen on keystrokes"""
 screen.listen()
@@ -44,6 +50,7 @@ while isGameOn:
     """if snake eats the food, the food vanishes at the 
     given location and appears at a newer location after collision"""
     if snake.head.distance(food) < 15:
+        score.increaseScore()
         food.moveFood()
 
 

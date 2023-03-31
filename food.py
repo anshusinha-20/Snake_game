@@ -1,4 +1,4 @@
-"""Turtle class is imported from turtle module"""
+"""Turtle class is imported from the turtle module"""
 from turtle import Turtle
 
 """random module is imported"""
@@ -14,6 +14,7 @@ class Food(Turtle):
         self.penup()
         self.shapesize(stretch_len=0.5, stretch_wid=0.5)
         self.speed("fastest")
+        self.moveFood()
 
     def moveFood(self):
         randomX = random.randint(-280, 280)
