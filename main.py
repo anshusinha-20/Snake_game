@@ -43,7 +43,7 @@ while isGameOn:
     """screen is updated"""
     screen.update()
     """created delay in animation"""
-    time.sleep(0.1)
+    time.sleep(0.08)
     """snake object is called and the snake starts moving"""
     snake.moveSnake()
 
