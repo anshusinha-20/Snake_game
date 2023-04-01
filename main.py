@@ -53,6 +53,11 @@ while isGameOn:
         score.increaseScore()
         food.moveFood()
 
+    """if snake hits the wall, the game is over"""
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        isGameOn = False
+        score.gameOver()
+
 
 """screen will exit on click"""
 screen.exitonclick()
