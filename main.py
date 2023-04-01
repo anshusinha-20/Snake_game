@@ -52,11 +52,22 @@ while isGameOn:
     if snake.head.distance(food) < 15:
         score.increaseScore()
         food.moveFood()
+        """snake extends"""
+        snake.extendBody()
 
     """if snake hits the wall, the game is over"""
-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+    if snake.head.xcor() > 280 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -280:
         isGameOn = False
         score.gameOver()
+
+    """if snake collides with its own body, the game is over"""
+    for body in snake.bodies:
+        if body == snake.head:
+            pass
+        elif snake.head.distance(body) < 10:
+            isGameOn = False
+            score.gameOver()
+
 
 
 """screen will exit on click"""
