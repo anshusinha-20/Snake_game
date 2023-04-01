@@ -10,6 +10,9 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 
+"""forward distance"""
+DISTANCE = 20
+
 """created the Snake class"""
 class Snake:
 
@@ -38,7 +41,7 @@ class Snake:
             newX = self.bodies[body - 1].xcor()
             newY = self.bodies[body - 1].ycor()
             self.bodies[body].goto(newX, newY)
-        self.head.forward(10)
+        self.head.forward(DISTANCE)
 
     def up(self):
         if self.head.heading() != DOWN:

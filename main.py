@@ -15,10 +15,10 @@ import time
 
 """created an object using the screen class"""
 screen = Screen()
+screen.tracer(0)    # turning off the tracer
 screen.setup(width=600, height=600)
 screen.bgcolor("green")
 screen.title("Snake Game")
-screen.tracer(0)    # turning off the tracer
 
 """creating the snake object"""
 snake = Snake()
@@ -31,7 +31,6 @@ score = Scoreboard()
 
 """making up the screen to listen on keystrokes"""
 screen.listen()
-
 screen.onkey(snake.up, "Up")
 screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
@@ -43,7 +42,7 @@ while isGameOn:
     """screen is updated"""
     screen.update()
     """created delay in animation"""
-    time.sleep(0.08)
+    time.sleep(0.15)
     """snake object is called and the snake starts moving"""
     snake.moveSnake()
 
@@ -56,18 +55,15 @@ while isGameOn:
         snake.extendBody()
 
     """if snake hits the wall, the game is over"""
-    if snake.head.xcor() > 280 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -280:
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         isGameOn = False
         score.gameOver()
 
     """if snake collides with its own body, the game is over"""
-    for body in snake.bodies:
-        if body == snake.head:
-            pass
-        elif snake.head.distance(body) < 10:
+    for body in snake.bodies[1:]:
+        if snake.head.distance(body) < 10:
             isGameOn = False
             score.gameOver()
-
 
 
 """screen will exit on click"""
