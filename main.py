@@ -46,7 +46,7 @@ while isGameOn:
     """snake object is called and the snake starts moving"""
     snake.moveSnake()
 
-    """if snake eats the food, the food vanishes at the 
+    """if snake eats the food, the food vanishes at the
     given location and appears at a newer location after collision"""
     if snake.head.distance(food) < 15:
         score.increaseScore()
