@@ -55,7 +55,7 @@ while isGameOn:
         snake.extendBody()
 
     """if snake hits the wall, the game is over"""
-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+    if snake.head.xcor() > 280 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -280:
         isGameOn = False
         score.gameOver()
 

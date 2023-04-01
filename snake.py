@@ -11,7 +11,7 @@ LEFT = 180
 RIGHT = 0
 
 """forward distance"""
-DISTANCE = 20
+DISTANCE = 10
 
 """created the Snake class"""
 class Snake:
