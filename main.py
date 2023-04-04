@@ -54,16 +54,19 @@ while isGameOn:
         """snake extends"""
         snake.extendBody()
 
-    """if snake hits the wall, the game is over"""
+    """if snake hits the wall, the game restarts"""
     if snake.head.xcor() > 280 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -280:
-        isGameOn = False
-        score.gameOver()
+        """if the current score is more than the highscore, the highscore is updated with the current score and
+        the score is reset to zero"""
+        score.reset()
+        """new snake is created"""
+        snake.reset()
 
-    """if snake collides with its own body, the game is over"""
+    """if snake collides with its own body, the game restarts"""
     for body in snake.bodies[1:]:
         if snake.head.distance(body) < 10:
-            isGameOn = False
-            score.gameOver()
+            score.reset()
+            snake.reset()
 
 
 """screen will exit on click"""

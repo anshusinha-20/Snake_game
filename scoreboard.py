@@ -14,18 +14,25 @@ class Scoreboard(Turtle):
         self.penup()
         self.goto(0, 275)
         self.score = 0
+        self.highscore = 0
         self.updateScoreBoard()
 
 
     def updateScoreBoard(self):
-        self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
+        self.clear()
+        self.write(f"Score: {self.score}  Highscore: {self.highscore}", align=ALIGNMENT, font=FONT)
 
-    def gameOver(self):
-        self.goto(0, 0)
-        self.write("Game Over!", align=ALIGNMENT, font=FONT)
+    def reset(self):
+        if self.score > self.highscore:
+            self.highscore = self.score
+        self.score = 0
+        self.updateScoreBoard()
+
+    # def gameOver(self):
+    #     self.goto(0, 0)
+    #     self.write("Game Over!", align=ALIGNMENT, font=FONT)
 
     def increaseScore(self):
-        self.clear()
         self.score += 1
         self.updateScoreBoard()
 
